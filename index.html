@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decide por mim</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Site de decisões lógicas</p>
+          <h1>Decide por mim</h1>
+          <p class="subtitle">
+            Transforme dúvidas em clareza: combine fatores reais, veja a nota da decisão e o caminho
+            mais racional.
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>Como funciona?</h2>
+          <ol>
+            <li>Digite sua pergunta.</li>
+            <li>Ajuste os fatores de realidade.</li>
+            <li>Receba nota, recomendação e explicação passo a passo.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="panel">
+        <form id="decision-form">
+          <label class="field">
+            <span>Perfil de decisão</span>
+            <select id="profile">
+              <option value="balanced" selected>Equilibrado</option>
+              <option value="conservative">Conservador</option>
+              <option value="bold">Ousado</option>
+            </select>
+            <small>Define como o peso dos fatores é distribuído.</small>
+          </label>
+          <label class="field">
+            <span>Sua dúvida</span>
+            <input
+              type="text"
+              id="question"
+              placeholder="Ex.: Devo trocar de escola?"
+              required
+            />
+          </label>
+
+          <div class="grid">
+            <div class="factor">
+              <div class="factor-header">
+                <span>Dinheiro</span>
+                <span class="value" id="money-value">6</span>
+              </div>
+              <input type="range" id="money" min="0" max="10" value="6" />
+              <p class="factor-hint">Quanto o custo ou ganho pesa hoje.</p>
+            </div>
+            <div class="factor">
+              <div class="factor-header">
+                <span>Tempo</span>
+                <span class="value" id="time-value">6</span>
+              </div>
+              <input type="range" id="time" min="0" max="10" value="6" />
+              <p class="factor-hint">O tempo necessário para executar a decisão.</p>
+            </div>
+            <div class="factor">
+              <div class="factor-header">
+                <span>Impacto futuro</span>
+                <span class="value" id="impact-value">7</span>
+              </div>
+              <input type="range" id="impact" min="0" max="10" value="7" />
+              <p class="factor-hint">Efeitos de longo prazo para você.</p>
+            </div>
+            <div class="factor">
+              <div class="factor-header">
+                <span>Risco</span>
+                <span class="value" id="risk-value">4</span>
+              </div>
+              <input type="range" id="risk" min="0" max="10" value="4" />
+              <p class="factor-hint">Chance de algo dar errado.</p>
+            </div>
+            <div class="factor">
+              <div class="factor-header">
+                <span>Benefício</span>
+                <span class="value" id="benefit-value">7</span>
+              </div>
+              <input type="range" id="benefit" min="0" max="10" value="7" />
+              <p class="factor-hint">Potencial de ganhos ou satisfação.</p>
+            </div>
+          </div>
+
+          <button type="submit">Gerar decisão</button>
+        </form>
+      </section>
+
+      <section class="results" id="results" aria-live="polite">
+        <div class="results-header">
+          <h2>Resultado lógico</h2>
+          <p>Preencha os fatores para visualizar a análise.</p>
+        </div>
+
+        <div class="score-card">
+          <div>
+            <p class="label">Nota da decisão</p>
+            <p class="score" id="score">--</p>
+            <p class="score-label" id="score-label">Aguardando análise</p>
+          </div>
+          <div class="badge" id="path">Caminho mais racional: --</div>
+        </div>
+
+        <div class="steps">
+          <h3>Explicação passo a passo</h3>
+          <ol id="steps-list">
+            <li>Insira sua pergunta e ajuste os fatores para começar.</li>
+          </ol>
+        </div>
+
+        <div class="summary">
+          <h3>Resumo dos fatores</h3>
+          <div class="summary-list" id="summary-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Decide por mim — decisões mais conscientes com fatores reais.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
